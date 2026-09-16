@@ -8,14 +8,16 @@ import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
+import java.awt.Insets;
 /**
  *
  * @author ALUMNOS
  */
 public class NewJFrame extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame.class.getName());
-
+    private JTextField display;
+    private double primerNumero;
+    private String operacion;
+    private boolean nuevaEntrada = true;
     /**
      * Creates new form NewJFrame
      */
@@ -23,16 +25,15 @@ public class NewJFrame extends javax.swing.JFrame {
         //initComponents();
        setTitle("Prueba Calculadora");
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       setSize(900,900);
+       setSize(400,400);
        setLocationRelativeTo(null);
        setLayout(new GridBagLayout());
        
-       GridBagConstraints gbc = new GridBagConstraints();
-       gbc.weightx = 0;
-       gbc.weighty = 0;
+        GridBagConstraints gbc = new GridBagConstraints();
+         gbc.fill = GridBagConstraints.BOTH;
         
-           //Area de calculo
-        JTextField display = new JTextField(15);
+        //Area de calculo
+        display = new JTextField(12);       
         display.setEditable(false);
         gbc.gridx = 0;
         gbc.gridy = 0 ;
@@ -42,94 +43,206 @@ public class NewJFrame extends javax.swing.JFrame {
         
         
        gbc.gridwidth = 1;
-       gbc.fill = GridBagConstraints.NONE;  
-       JButton boton1 = new JButton("1"); 
-       gbc.gridx = 0;
-       gbc.gridy = 1;
-       getContentPane().add(boton1 , gbc);
-       
+        JButton boton1 = new JButton("1");
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        add(boton1, gbc);
+
+        JButton boton2 = new JButton("2");
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        add(boton2, gbc);
+
+        JButton boton3 = new JButton("3");
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        add(boton3, gbc);
+
+        JButton boton4 = new JButton("4");
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        add(boton4, gbc);
+
+        JButton boton5 = new JButton("5");
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        add(boton5, gbc);
+
+        JButton boton6 = new JButton("6");
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        add(boton6, gbc);
+
+        JButton boton7 = new JButton("7");
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        add(boton7, gbc);
+
+        JButton boton8 = new JButton("8");
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        add(boton8, gbc);
+
+        JButton boton9 = new JButton("9");
+        gbc.gridx = 2;
+        gbc.gridy = 3;
+        add(boton9, gbc);
+
+        JButton botonSigno = new JButton("-");
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        add(botonSigno, gbc);
+
+        JButton boton0 = new JButton("0");
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        add(boton0, gbc);
+
+        JButton botonComa = new JButton(",");
+        gbc.gridx = 2;
+        gbc.gridy = 4;
+        add(botonComa, gbc);
+
+        JButton botonSuma = new JButton("+");
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        add(botonSuma, gbc);
+
+        JButton botonResta = new JButton("-");
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        add(botonResta, gbc);
+
+        JButton botonMultiplica = new JButton("*");
+        gbc.gridx = 3;
+        gbc.gridy = 2;
+        add(botonMultiplica, gbc);
+
+        JButton botonDivide = new JButton("/");
+        gbc.gridx = 3;
+        gbc.gridy = 3;
+        add(botonDivide, gbc);
+
+        JButton botonIgual = new JButton("=");
+        gbc.gridx = 3;
+        gbc.gridy = 4;
+        add(botonIgual, gbc);
+
+        JButton BotonAC = new JButton("AC");
+        add(BotonAC, gbc);
         
-       JButton boton2 = new JButton("2"); 
-       gbc.gridx = 1 ;
-       gbc.gridy = 1; 
-       getContentPane().add(boton2, gbc);
         
-       JButton boton3 = new JButton("3"); 
-       gbc.gridx = 2 ;
-       gbc.gridy = 1;
-       getContentPane().add(boton3, gbc);
-        
-       JButton boton4 = new JButton("4"); 
-       gbc.gridx = 0 ;
-       gbc.gridy = 2;
-       getContentPane().add(boton4, gbc);
-        
-       JButton boton5 = new JButton("5"); 
-       gbc.gridx = 1 ;
-       gbc.gridy = 2;
-       getContentPane().add(boton5, gbc);
-        
-       JButton boton6 = new JButton("6"); 
-       gbc.gridx = 2 ;
-       gbc.gridy = 2;
-       getContentPane().add(boton6, gbc);
-        
-       JButton boton7 = new JButton("7"); 
-       gbc.gridx = 0 ;
-       gbc.gridy = 3;
-       getContentPane().add(boton7, gbc);
-        
-       JButton boton8 = new JButton("8"); 
-       gbc.gridx = 1 ;
-       gbc.gridy = 3;
-       getContentPane().add(boton8, gbc);
-        
-       JButton boton9 = new JButton("9"); 
-       gbc.gridx = 2 ;
-       gbc.gridy = 3;
-       getContentPane().add(boton9, gbc);
-        
-       JButton boton0 = new JButton("0"); 
-       gbc.gridx = 1 ;
-       gbc.gridy = 4;
-       getContentPane().add(boton0, gbc);
-        
-       JButton boton10 = new JButton("-"); 
-       gbc.gridx = 0 ;
-       gbc.gridy = 4;
-       getContentPane().add(boton10, gbc);
-        
-       JButton boton11 = new JButton(","); 
-       gbc.gridx = 2 ;
-       gbc.gridy = 4;
-       getContentPane().add(boton11, gbc);
-        
-       JButton boton12 = new JButton("+"); 
-       gbc.gridx = 4 ;
-       gbc.gridy = 0;
-       getContentPane().add(boton12, gbc);
-       
-       JButton boton13 = new JButton("-"); 
-       gbc.gridx = 4 ;
-       gbc.gridy = 1;
-       getContentPane().add(boton13, gbc);
-       
-       JButton boton14 = new JButton("*"); 
-       gbc.gridx = 4 ;
-       gbc.gridy = 2;
-       getContentPane().add(boton14, gbc);
-       
-       JButton boton15 = new JButton("/"); 
-       gbc.gridx = 4 ;
-       gbc.gridy = 3;
-       getContentPane().add(boton15, gbc);
-       
-       JButton boton16 = new JButton("="); 
-       gbc.gridx = 4 ;
-       gbc.gridy = 4;
-       getContentPane().add(boton16, gbc);
-        
+        boton0.addActionListener(e -> escribirNumero("0"));
+        boton1.addActionListener(e -> escribirNumero("1"));
+        boton2.addActionListener(e -> escribirNumero("2"));
+        boton3.addActionListener(e -> escribirNumero("3"));
+        boton4.addActionListener(e -> escribirNumero("4"));
+        boton5.addActionListener(e -> escribirNumero("5"));
+        boton6.addActionListener(e -> escribirNumero("6"));
+        boton7.addActionListener(e -> escribirNumero("7"));
+        boton8.addActionListener(e -> escribirNumero("8"));
+        boton9.addActionListener(e -> escribirNumero("9"));
+        boton0.addActionListener(e -> escribirNumero("0"));
+        botonComa.addActionListener(e -> escribirComa());
+        botonSigno.addActionListener(e -> cambiarSigno());
+        BotonAC.addActionListener(e -> borrarTodo());
+        botonSuma.addActionListener(e -> seleccionarOperacion("+"));
+        botonResta.addActionListener(e -> seleccionarOperacion("-"));
+        botonMultiplica.addActionListener(e -> seleccionarOperacion("*"));
+        botonDivide.addActionListener(e -> seleccionarOperacion("/"));
+        botonIgual.addActionListener(e -> calcular());
     }
+        private void escribirNumero(String numero) {
+        if (nuevaEntrada) {
+            display.setText(numero);
+            nuevaEntrada = false;
+        } else {
+            display.setText(display.getText() + numero);
+        }
+    }
+
+    private void escribirComa() {
+        if (nuevaEntrada) {
+            display.setText("0,");
+            nuevaEntrada = false;
+        } else if (!display.getText().contains(",")) {
+            display.setText(display.getText() + ",");
+        }
+    }
+
+    private void cambiarSigno() {
+        String texto = display.getText();
+
+        if (nuevaEntrada || texto.isEmpty()) {
+            display.setText("-");
+            nuevaEntrada = false;
+        } else if (texto.startsWith("-")) {
+            display.setText(texto.substring(1));
+        } else {
+            display.setText("-" + texto);
+        }
+    }
+
+    private void seleccionarOperacion(String nuevaOperacion) {
+        if (display.getText().isEmpty() || display.getText().equals("-")) {
+            return;
+        }
+
+        primerNumero = leerDisplay();
+        operacion = nuevaOperacion;
+        nuevaEntrada = true;
+    }
+
+    private void calcular() {
+        if (operacion == null || nuevaEntrada || display.getText().equals("-")) {
+            return;
+        }
+
+        double segundoNumero = leerDisplay();
+        double resultado = 0;
+
+        switch (operacion) {
+            case "+":
+                resultado = primerNumero + segundoNumero;
+                break;
+            case "-":
+                resultado = primerNumero - segundoNumero;
+                break;
+            case "*":
+                resultado = primerNumero * segundoNumero;
+                break;
+            case "/":
+                if (segundoNumero == 0) {
+                    display.setText("Error");
+                    operacion = null;
+                    nuevaEntrada = true;
+                    return;
+                }
+                resultado = primerNumero / segundoNumero;
+                break;
+        }
+
+        display.setText(formatear(resultado));
+        operacion = null;
+        nuevaEntrada = true;
+    }
+
+    private double leerDisplay() {
+        return Double.parseDouble(display.getText().replace(",", "."));
+    }
+
+    private String formatear(double numero) {
+        if (numero == (long) numero) {
+            return String.valueOf((long) numero);
+        }
+        return String.valueOf(numero).replace(".", ",");
+    }
+    private void borrarTodo() {
+    display.setText("");
+    primerNumero = 0;
+    operacion = null;
+    nuevaEntrada = true;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
