@@ -9,15 +9,20 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
+import java.math.*;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 /**
  *
  * @author ALUMNOS
  */
 public class NewJFrame extends javax.swing.JFrame {
-    private JTextField display;
+    final private JTextField display;
     private double primerNumero;
     private String operacion;
     private boolean nuevaEntrada = true;
+    private final JRadioButton radioGrados;
+    private final JRadioButton radioRadianes;
     /**
      * Creates new form NewJFrame
      */
@@ -30,106 +35,140 @@ public class NewJFrame extends javax.swing.JFrame {
        setLayout(new GridBagLayout());
        
         GridBagConstraints gbc = new GridBagConstraints();
-         gbc.fill = GridBagConstraints.BOTH;
+        gbc.fill = GridBagConstraints.BOTH;
         
         //Area de calculo
         display = new JTextField(12);       
         display.setEditable(false);
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 0 ;
         gbc.gridwidth = 3;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         getContentPane().add(display , gbc);
         
         
-       gbc.gridwidth = 1;
+      gbc.gridwidth = 1;
         JButton boton1 = new JButton("1");
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 1;
         add(boton1, gbc);
-
+ 
         JButton boton2 = new JButton("2");
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 1;
         add(boton2, gbc);
-
+ 
         JButton boton3 = new JButton("3");
-        gbc.gridx = 2;
+        gbc.gridx = 3;
         gbc.gridy = 1;
         add(boton3, gbc);
-
+ 
         JButton boton4 = new JButton("4");
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 2;
         add(boton4, gbc);
-
+ 
         JButton boton5 = new JButton("5");
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 2;
         add(boton5, gbc);
-
+ 
         JButton boton6 = new JButton("6");
-        gbc.gridx = 2;
+        gbc.gridx = 3;
         gbc.gridy = 2;
         add(boton6, gbc);
-
+ 
         JButton boton7 = new JButton("7");
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 3;
         add(boton7, gbc);
-
+ 
         JButton boton8 = new JButton("8");
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 3;
         add(boton8, gbc);
-
+ 
         JButton boton9 = new JButton("9");
-        gbc.gridx = 2;
+        gbc.gridx = 3;
         gbc.gridy = 3;
         add(boton9, gbc);
-
+ 
         JButton botonSigno = new JButton("-");
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        add(botonSigno, gbc);
-
-        JButton boton0 = new JButton("0");
         gbc.gridx = 1;
         gbc.gridy = 4;
-        add(boton0, gbc);
-
-        JButton botonComa = new JButton(",");
+        add(botonSigno, gbc);
+ 
+        JButton boton0 = new JButton("0");
         gbc.gridx = 2;
         gbc.gridy = 4;
-        add(botonComa, gbc);
-
-        JButton botonSuma = new JButton("+");
-        gbc.gridx = 3;
-        gbc.gridy = 0;
-        add(botonSuma, gbc);
-
-        JButton botonResta = new JButton("-");
-        gbc.gridx = 3;
-        gbc.gridy = 1;
-        add(botonResta, gbc);
-
-        JButton botonMultiplica = new JButton("*");
-        gbc.gridx = 3;
-        gbc.gridy = 2;
-        add(botonMultiplica, gbc);
-
-        JButton botonDivide = new JButton("/");
-        gbc.gridx = 3;
-        gbc.gridy = 3;
-        add(botonDivide, gbc);
-
-        JButton botonIgual = new JButton("=");
+        add(boton0, gbc);
+ 
+        JButton botonComa = new JButton(",");
         gbc.gridx = 3;
         gbc.gridy = 4;
+        add(botonComa, gbc);
+ 
+        JButton botonSuma = new JButton("+");
+        gbc.gridx = 4;
+        gbc.gridy = 0;
+        add(botonSuma, gbc);
+ 
+        JButton botonResta = new JButton("-");
+        gbc.gridx = 4;
+        gbc.gridy = 1;
+        add(botonResta, gbc);
+ 
+        JButton botonMultiplica = new JButton("*");
+        gbc.gridx = 4;
+        gbc.gridy = 2;
+        add(botonMultiplica, gbc);
+ 
+        JButton botonDivide = new JButton("/");
+        gbc.gridx = 4;
+        gbc.gridy = 3;
+        add(botonDivide, gbc);
+ 
+        JButton botonIgual = new JButton("=");
+        gbc.gridx = 4;
+        gbc.gridy = 4;
         add(botonIgual, gbc);
-
+        
+        
+        JButton botonSenos = new JButton("SEN");
+        gbc.gridx = 5;
+        gbc.gridy = 0;
+        add(botonSenos, gbc);
+ 
+        JButton botonconSenos = new JButton("COS");
+        gbc.gridx = 5;
+        gbc.gridy = 1;
+        add(botonconSenos, gbc);
+        
+        JButton BotonTangentes = new JButton("TAN");
+        gbc.gridx = 5;
+        gbc.gridy = 2;
+        add(BotonTangentes, gbc);
+        
         JButton BotonAC = new JButton("AC");
+        gbc.gridx = 5;
+        gbc.gridy = 3;
         add(BotonAC, gbc);
+        
+        radioGrados = new JRadioButton("Grados", true); // empieza seleccionado
+        radioRadianes = new JRadioButton("Radianes");
+ 
+        ButtonGroup grupoAngulo = new ButtonGroup();
+        grupoAngulo.add(radioGrados);
+        grupoAngulo.add(radioRadianes);
+ 
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        add(radioGrados, gbc);
+ 
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        add(radioRadianes, gbc);
+        
         
         
         boton0.addActionListener(e -> escribirNumero("0"));
@@ -142,7 +181,6 @@ public class NewJFrame extends javax.swing.JFrame {
         boton7.addActionListener(e -> escribirNumero("7"));
         boton8.addActionListener(e -> escribirNumero("8"));
         boton9.addActionListener(e -> escribirNumero("9"));
-        boton0.addActionListener(e -> escribirNumero("0"));
         botonComa.addActionListener(e -> escribirComa());
         botonSigno.addActionListener(e -> cambiarSigno());
         BotonAC.addActionListener(e -> borrarTodo());
@@ -151,6 +189,35 @@ public class NewJFrame extends javax.swing.JFrame {
         botonMultiplica.addActionListener(e -> seleccionarOperacion("*"));
         botonDivide.addActionListener(e -> seleccionarOperacion("/"));
         botonIgual.addActionListener(e -> calcular());
+        
+        // Sen, cos y tan calculan al momento (operaciones de un solo numero),
+        // usando el radio button (Grados/Radianes) para decidir si convertir o no.
+        botonSenos.addActionListener(e -> {
+            if (display.getText().isEmpty() || display.getText().equals("-")) return;
+            double numero = leerDisplay();
+            double resultado = Math.sin(aRadianes(numero));
+            display.setText(formatear(resultado));
+            nuevaEntrada = true;
+        });
+        
+        botonconSenos.addActionListener(e -> {
+            if (display.getText().isEmpty() || display.getText().equals("-")) return;
+            double numero = leerDisplay();
+            double resultado = Math.cos(aRadianes(numero));
+            display.setText(formatear(resultado));
+            nuevaEntrada = true;
+        });
+        
+        BotonTangentes.addActionListener(e -> {
+            if (display.getText().isEmpty() || display.getText().equals("-")) return;
+            double numero = leerDisplay();
+            double resultado = Math.tan(aRadianes(numero));
+            display.setText(formatear(resultado));
+            nuevaEntrada = true;
+        });
+        
+        
+        
     }
         private void escribirNumero(String numero) {
         if (nuevaEntrada) {
@@ -160,7 +227,7 @@ public class NewJFrame extends javax.swing.JFrame {
             display.setText(display.getText() + numero);
         }
     }
-
+ 
     private void escribirComa() {
         if (nuevaEntrada) {
             display.setText("0,");
@@ -169,10 +236,10 @@ public class NewJFrame extends javax.swing.JFrame {
             display.setText(display.getText() + ",");
         }
     }
-
+ 
     private void cambiarSigno() {
         String texto = display.getText();
-
+ 
         if (nuevaEntrada || texto.isEmpty()) {
             display.setText("-");
             nuevaEntrada = false;
@@ -182,36 +249,30 @@ public class NewJFrame extends javax.swing.JFrame {
             display.setText("-" + texto);
         }
     }
-
+ 
     private void seleccionarOperacion(String nuevaOperacion) {
         if (display.getText().isEmpty() || display.getText().equals("-")) {
             return;
         }
-
+ 
         primerNumero = leerDisplay();
         operacion = nuevaOperacion;
         nuevaEntrada = true;
     }
-
+ 
     private void calcular() {
         if (operacion == null || nuevaEntrada || display.getText().equals("-")) {
             return;
         }
-
+ 
         double segundoNumero = leerDisplay();
         double resultado = 0;
-
+ 
         switch (operacion) {
-            case "+":
-                resultado = primerNumero + segundoNumero;
-                break;
-            case "-":
-                resultado = primerNumero - segundoNumero;
-                break;
-            case "*":
-                resultado = primerNumero * segundoNumero;
-                break;
-            case "/":
+            case "+" -> resultado = primerNumero + segundoNumero;
+            case "-" -> resultado = primerNumero - segundoNumero;
+            case "*" -> resultado = primerNumero * segundoNumero;
+            case "/" -> {
                 if (segundoNumero == 0) {
                     display.setText("Error");
                     operacion = null;
@@ -219,18 +280,27 @@ public class NewJFrame extends javax.swing.JFrame {
                     return;
                 }
                 resultado = primerNumero / segundoNumero;
-                break;
+            }
         }
-
+ 
         display.setText(formatear(resultado));
         operacion = null;
         nuevaEntrada = true;
     }
-
+ 
     private double leerDisplay() {
         return Double.parseDouble(display.getText().replace(",", "."));
     }
-
+ 
+    // Convierte a radianes solo si esta marcado "Grados"; si esta marcado
+    // "Radianes", devuelve el numero tal cual (ya se asume que esta en radianes).
+    private double aRadianes(double numero) {
+        if (radioGrados.isSelected()) {
+            return Math.toRadians(numero);
+        }
+        return numero;
+    }
+ 
     private String formatear(double numero) {
         if (numero == (long) numero) {
             return String.valueOf((long) numero);
@@ -243,6 +313,7 @@ public class NewJFrame extends javax.swing.JFrame {
     operacion = null;
     nuevaEntrada = true;
 }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
